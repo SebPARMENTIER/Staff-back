@@ -12,6 +12,10 @@ Menu.init(
         description: {
             type: DataTypes.TEXT,
             allowNull: false
+        },
+        price: {
+            type: DataTypes.TEXT,
+            allowNull: false
         }
     },
     {

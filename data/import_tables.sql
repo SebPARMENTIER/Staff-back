@@ -75,6 +75,7 @@ CREATE TABLE IF NOT EXISTS "menu" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "title" TEXT NOT NULL,
     "description" TEXT NOT NULL,
+    "price" TEXT NOT NULL,
     "restaurant_id" INT REFERENCES "restaurant" ("id"),
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
     "updated_at" TIMESTAMPTZ
