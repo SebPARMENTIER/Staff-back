@@ -74,7 +74,7 @@ INSERT INTO "food" ("title", "description", "price", "food_type_id", "food_kind_
 ('Loca', 'Salade verte, tomate noire de Crimée, olives vertes, avocat', '5€', 1, 2),
 ('Banderilla de Boeuf', 'Pour les inconditionnels de la viande rouge, brochette de boeuf (origine France) aux épices, accompagnée d''une sauce rio et frites maison', '15€', 2, 1),
 ('Banderilla de Peixe', 'Brochette de vivanneau, gambas et filet de loup, accompagnée d''une sauce crustacés et riz aux épices du sud', '14€', 2, 1),
-('Bambino', 'Jambons à l''os grantiné au parmesan accompagné de frites maison', '8€', 2, 1),
+('Bambino', 'Jambons à l''os gratiné au parmesan accompagné de frites maison', '8€', 2, 1),
 ('COPA COCO', 'Glace coco, glace noisettes, chantilly, amandes grillées', '4€', 3, 4),
 ('FRAISIER', 'Fraisier sur coulis de fruits rouges', '4€', 3, 5);
 

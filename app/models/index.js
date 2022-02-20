@@ -3,7 +3,7 @@ const Drink_kind = require('./drink_kind');
 const Drink_type = require('./drink_type');
 const Drink = require('./drink');
 const Food_kind = require('./food_kind');
-const Food_type = require('./drink_type');
+const Food_type = require('./food_type');
 const Food = require('./food');
 const Job = require('./job');
 const Menu = require('./menu');
@@ -41,7 +41,7 @@ Restaurant.hasMany(Card, {
 });
 
 Menu.belongsTo(Restaurant, {
-    as: "menu",
+    as: "restaurant",
     foreignKey: "restaurant_id"
 });
 
@@ -112,7 +112,7 @@ Card.belongsToMany(Food, {
 });
 
 Food.belongsToMany(Card, {
-    as: "cards_foods",
+    as: "cards_food",
     through: "card_has_food",
     foreignKey: "food_id",
     otherKey: "card_id"

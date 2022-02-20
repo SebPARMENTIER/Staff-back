@@ -1,14 +1,14 @@
-const { Card, Drink, Food } = require('../models');
+const { Menu, Drink, Food } = require('../models');
 
 module.exports = {
     getAll: async (_, res) => {
         try {
-            const cards = await Card.findAll({
+            const menus = await Menu.findAll({
                 include: [
                     { association: 'restaurant' },
                     {
                         model: Drink,
-                        association: 'drinks_card',
+                        association: 'drinks_menu',
                         include: [
                             { association: 'drink_type' },
                             { association: 'drink_kind' }
@@ -16,7 +16,7 @@ module.exports = {
                     },
                     {
                         model: Food,
-                        association: 'foods_card',
+                        association: 'foods_menu',
                         include: [
                             { association: 'food_type' },
                             { association: 'food_kind' }
@@ -24,7 +24,7 @@ module.exports = {
                     }
                 ]
             });
-            return res.status(200).json(cards);
+            return res.status(200).json(menus);
         } catch (error) {
             console.log(error);
             res.status(400).json({
