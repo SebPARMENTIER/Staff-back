@@ -23,9 +23,9 @@ CREATE TABLE IF NOT EXISTS "restaurant" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "name" TEXT NOT NULL,
     "adress" TEXT NOT NULL,
-    "zip_code" INT NOT NULL,
+    "zip_code" TEXT NOT NULL,
     "city" TEXT NOT NULL,
-    "phone" INT NOT NULL,
+    "phone" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
     "updated_at" TIMESTAMPTZ

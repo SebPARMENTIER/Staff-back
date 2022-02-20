@@ -1,7 +1,7 @@
 BEGIN;
 
 INSERT INTO "restaurant" ("name", "adress", "zip_code", "city", "phone", "email") VALUES
-('MUNDO LATINO', '4 cours Jourdan', 87000, 'LIMOGES', 0555101055, 'mundolatino@gmail.com');
+('MUNDO LATINO', '4 cours Jourdan', '87000', 'LIMOGES', '0555101055', 'mundolatino@gmail.com');
 
 INSERT INTO "job" ("title") VALUES
 ('Barman'),

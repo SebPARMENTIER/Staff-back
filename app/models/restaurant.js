@@ -14,7 +14,7 @@ Restaurant.init(
             allowNull: false
         },
         zip_code: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.TEXT,
             allowNull: false
         },
         city: {
@@ -22,7 +22,7 @@ Restaurant.init(
             allowNull: false
         },
         phone: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.TEXT,
             allowNull: false
         },
         email: {
