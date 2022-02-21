@@ -28,7 +28,21 @@ router.route('/card/:id(\\d+)/drink')
     .delete(cardController.deleteDrinkOnCard);
 
 router.route('/menu')
-    .get(menuController.getAll);
+    .get(menuController.getAll)
+    .post(menuController.createMenu)
+    .patch(menuController.updateMenu);
+
+router.route('/menu/:id(\\d+)')
+    .get(menuController.getById)
+    .delete(menuController.deleteMenu);
+
+router.route('/menu/:id(\\d+)/food')
+    .post(menuController.addFoodOnMenu)
+    .delete(menuController.deleteFoodOnMenu);
+
+router.route('/menu/:id(\\d+)/drink')
+    .post(menuController.addDrinkOnMenu)
+    .delete(menuController.deleteDrinkOnMenu);
 
 router.route('/food')
     .get(foodController.getAll)
