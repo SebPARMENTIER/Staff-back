@@ -32,5 +32,20 @@ module.exports = {
                 error: "Désolé, une erreur est survenue, veuillez réessayer ultérieurement."
             });
         }
+    },
+    addCard: async (req, res) => {
+        try {
+            const card = await Card.create(req.body);
+
+            return res.status(200).json({
+                card
+            });
+        } catch (error) {
+            console.log(error);
+            res.status(400).json({
+                data: [],
+                error: "Désolé, une erreur est survenue, veuillez réessayer ultérieurement."
+            });
+        }
     }
 };
