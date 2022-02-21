@@ -8,8 +8,13 @@ const foodController = require('../controllers/food');
 const drinkController = require('../controllers/drink');
 
 router.route('/user')
-    .get(userController.getAll)
+    .get(userController.getAll);
+
+router.route('/signup')
     .post(userController.signup);
+
+router.route('/login')
+    .post(userController.login);
 
 router.route('/card')
     .get(cardController.getAll)
@@ -63,7 +68,7 @@ router.route('/drink/:id(\\d+)')
 
 router.get('/', (_, res) => {
     res.json({
-        message: "API Stan",
+        message: "API Stan - Case Study",
         author: "PARMENTIER Sébastien"
     });
 });

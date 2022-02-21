@@ -75,5 +75,57 @@ module.exports = {
                 error: "Désolé, une erreur est survenue, veuillez réessayer ultérieurement"
             });
         }
-    }
+    },
+    login: async (req, res) => {
+        try {
+            const { email, password } = req.body;
+        
+            if (!email || !password) {
+                return res.status(400).json({
+                data: [],
+                error: "Vous devez entrer un email et un mot de passe"
+                });
+            }
+        
+            const user = await User.findOne({
+                where: {
+                [Op.or]: {
+                    email: {
+                    [Op.iLike]: email,
+                    },
+                },
+                },
+            });
+        
+            if (!user) {
+                return res.status(404).json({
+                    data: [],
+                    error: "L'email renseigné n'existe pas"
+                });
+            }
+        
+            const passwordIsMatch = await bcrypt.compare(password, user.password);
+        
+            if (!passwordIsMatch) {
+                return res.status(400).json({
+                    data: [],
+                    error: "Le mot de passe ne correspond pas"
+                });
+            }
+        
+            const userData = user.toJSON();
+            const accessToken = generateAccessToken(userData);
+        
+            return res.json({
+                ...userData,
+                accessToken
+            });
+            } catch (error) {
+            console.error(error);
+            return res.status(500).send({
+                data: [],
+                error: "Désolé, une erreur est survenue, veuillez réessayer ultérieurement"
+            });
+        }
+    },
 };
