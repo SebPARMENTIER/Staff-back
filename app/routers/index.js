@@ -8,7 +8,8 @@ const foodController = require('../controllers/food');
 const drinkController = require('../controllers/drink');
 
 router.route('/user')
-    .get(userController.getAll);
+    .get(userController.getAll)
+    .post(userController.signup);
 
 router.route('/card')
     .get(cardController.getAll)
