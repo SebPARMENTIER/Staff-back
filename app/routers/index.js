@@ -12,16 +12,20 @@ router.route('/user')
 
 router.route('/card')
     .get(cardController.getAll)
-    .post(cardController.addCard);
+    .post(cardController.createCard)
+    .patch(cardController.updateCard);
 
 router.route('/card/:id(\\d+)')
-    .get(cardController.getById);
+    .get(cardController.getById)
+    .delete(cardController.deleteCard);
 
 router.route('/card/:id(\\d+)/food')
-    .post(cardController.addFoodOnCard);
+    .post(cardController.addFoodOnCard)
+    .delete(cardController.deleteFoodOnCard);
 
 router.route('/card/:id(\\d+)/drink')
-    .post(cardController.addDrinkOnCard);
+    .post(cardController.addDrinkOnCard)
+    .delete(cardController.deleteDrinkOnCard);
 
 router.route('/menu')
     .get(menuController.getAll);

@@ -94,56 +94,64 @@ Card.belongsToMany(Drink, {
     as: "drinks_card",
     through: "card_has_drink",
     foreignKey: "card_id",
-    otherKey: "drink_id"
+    otherKey: "drink_id",
+    onDelete: "cascade"
 });
 
 Drink.belongsToMany(Card, {
     as: "cards_drink",
     through: "card_has_drink",
     foreignKey: "drink_id",
-    otherKey: "card_id"
+    otherKey: "card_id",
+    onDelete: "cascade"
 });
 
 Card.belongsToMany(Food, {
     as: "foods_card",
     through: "card_has_food",
     foreignKey: "card_id",
-    otherKey: "food_id"
+    otherKey: "food_id",
+    onDelete: "cascade"
 });
 
 Food.belongsToMany(Card, {
     as: "cards_food",
     through: "card_has_food",
     foreignKey: "food_id",
-    otherKey: "card_id"
+    otherKey: "card_id",
+    onDelete: "cascade"
 });
 
 Menu.belongsToMany(Drink, {
     as: "drinks_menu",
     through: "menu_has_drink",
     foreignKey: "menu_id",
-    otherKey: "drink_id"
+    otherKey: "drink_id",
+    onDelete: "cascade"
 });
 
 Drink.belongsToMany(Menu, {
     as: "menus_drink",
     through: "menu_has_drink",
     foreignKey: "drink_id",
-    otherKey: "menu_id"
+    otherKey: "menu_id",
+    onDelete: "cascade"
 });
 
 Menu.belongsToMany(Food, {
     as: "foods_menu",
     through: "menu_has_food",
     foreignKey: "menu_id",
-    otherKey: "food_id"
+    otherKey: "food_id",
+    onDelete: "cascade"
 });
 
 Food.belongsToMany(Menu, {
     as: "menus_food",
     through: "menu_has_food",
     foreignKey: "food_id",
-    otherKey: "menu_id"
+    otherKey: "menu_id",
+    onDelete: "cascade"
 });
 
 module.exports = {

@@ -153,8 +153,8 @@ CREATE TABLE IF NOT EXISTS "food" (
 -- Table "card_has_drink"
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS "card_has_drink" (
-    "card_id" INT REFERENCES "card" ("id"),
-    "drink_id" INT REFERENCES "drink" ("id"),
+    "card_id" INT REFERENCES "card" ("id") ON DELETE CASCADE,
+    "drink_id" INT REFERENCES "drink" ("id") ON DELETE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
     "updated_at" TIMESTAMPTZ
 );
@@ -163,8 +163,8 @@ CREATE TABLE IF NOT EXISTS "card_has_drink" (
 -- Table "card_has_food"
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS "card_has_food" (
-    "card_id" INT REFERENCES "card" ("id"),
-    "food_id" INT REFERENCES "food" ("id"),
+    "card_id" INT REFERENCES "card" ("id") ON DELETE CASCADE,
+    "food_id" INT REFERENCES "food" ("id") ON DELETE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
     "updated_at" TIMESTAMPTZ
 );
@@ -173,8 +173,8 @@ CREATE TABLE IF NOT EXISTS "card_has_food" (
 -- Table "menu_has_drink"
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS "menu_has_drink" (
-    "menu_id" INT REFERENCES "menu" ("id"),
-    "drink_id" INT REFERENCES "drink" ("id"),
+    "menu_id" INT REFERENCES "menu" ("id") ON DELETE CASCADE,
+    "drink_id" INT REFERENCES "drink" ("id") ON DELETE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
     "updated_at" TIMESTAMPTZ
 );
@@ -183,8 +183,8 @@ CREATE TABLE IF NOT EXISTS "menu_has_drink" (
 -- Table "menu_has_food"
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS "menu_has_food" (
-    "menu_id" INT REFERENCES "menu" ("id"),
-    "food_id" INT REFERENCES "food" ("id"),
+    "menu_id" INT REFERENCES "menu" ("id") ON DELETE CASCADE,
+    "food_id" INT REFERENCES "food" ("id") ON DELETE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
     "updated_at" TIMESTAMPTZ
 );
