@@ -15,8 +15,13 @@ router.route('/card')
     .post(cardController.addCard);
 
 router.route('/card/:id(\\d+)')
-    .get(cardController.getById)
+    .get(cardController.getById);
+
+router.route('/card/:id(\\d+)/food')
     .post(cardController.addFoodOnCard);
+
+router.route('/card/:id(\\d+)/drink')
+    .post(cardController.addDrinkOnCard);
 
 router.route('/menu')
     .get(menuController.getAll);

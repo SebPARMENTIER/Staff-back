@@ -1,4 +1,4 @@
-const { Card, Drink, Food, card_has_food } = require('../models');
+const { Card, Drink, Food } = require('../models');
 const { sequelize } = require('../models/card');
 const { QueryTypes } = require('sequelize');
 
@@ -96,9 +96,9 @@ module.exports = {
         try {
             const { card_id, food_id } = req.body;
 
-            const addFood = await sequelize.query(`INSERT INTO "card_has_food" ("card_id", "food_id") VALUES (${card_id}, ${food_id})`, {type: QueryTypes.INSERT });
+            await sequelize.query(`INSERT INTO "card_has_food" ("card_id", "food_id") VALUES (${card_id}, ${food_id})`, {type: QueryTypes.INSERT });
             
-            return res.status(200).json(addFood);
+            return res.status(200).json({ OK: true });
         } catch (error) {
             console.log(error);
             return res.status(400).json({
@@ -107,4 +107,19 @@ module.exports = {
             });
         }
     },
+    addDrinkOnCard: async (req, res) => {
+        try {
+            const { card_id, drink_id } = req.body;
+
+            await sequelize.query(`INSERT INTO "card_has_drink" ("card_id", "drink_id") VALUES (${card_id}, ${drink_id})`, {type: QueryTypes.INSERT });
+            
+            return res.status(200).json({ OK: true });
+        } catch (error) {
+            console.log(error);
+            return res.status(400).json({
+                data: [],
+                error: "Désolé, une erreur est survenue, veuillez réessayer ultérieurement"
+            });
+        }
+    }
 };
