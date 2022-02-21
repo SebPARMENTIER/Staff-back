@@ -1,21 +1,21 @@
-const { Food, Food_kind, Food_type } = require('../models');
+const { Drink, Drink_kind, Drink_type } = require('../models');
 
 module.exports = {
     getAll: async (_, res) => {
         try {
-            const foods = await Food.findAll({
+            const drinks = await Drink.findAll({
                 include: [
                     {
-                        model: Food_kind,
-                        association: 'food_kind',
+                        model: Drink_kind,
+                        association: 'drink_kind',
                     },
                     {
-                        model: Food_type,
-                        association: 'food_type',
+                        model: Drink_type,
+                        association: 'drink_type',
                     }
                 ]
             });
-            return res.status(200).json(foods);
+            return res.status(200).json(drinks);
         } catch (error) {
             console.log(error);
             res.status(400).json({
@@ -24,12 +24,12 @@ module.exports = {
             });
         }
     },
-    addFood: async (req, res) => {
+    addDrink: async (req, res) => {
         try {
-            const food = await Food.create(req.body);
+            const drink = await Drink.create(req.body);
 
             return res.status(200).json({
-                food
+                drink
             });
         } catch (error) {
             console.log(error);
@@ -39,16 +39,16 @@ module.exports = {
             });
         }
     },
-    updateFood: async (req, res) => {
+    updateDrink: async (req, res) => {
         try {
-            const { id, title, description, price, food_type_id, food_kind_id } = req.body;
+            const { id, title, description, price, drink_type_id, drink_kind_id } = req.body;
 
-            const food = await Food.findByPk(id);
+            const drink = await Drink.findByPk(id);
 
-            if(!food) {
+            if(!drink) {
                 return res.status(404).json({
                     data: [],
-                    error: "Food non trouvée"
+                    error: "Drink non trouvée"
                 });
             };
 
@@ -59,16 +59,16 @@ module.exports = {
                 });
             };
 
-            await food.update({
+            await drink.update({
                 title,
                 description,
                 price,
-                food_type_id,
-                food_kind_id
+                drink_type_id,
+                drink_kind_id
             });
 
             return res.json({
-                food
+                drink
             });
         } catch (error) {
             console.log(error);
@@ -78,20 +78,20 @@ module.exports = {
             });
         }
     },
-    deleteFood: async (req, res) => {
+    deleteDrink: async (req, res) => {
         try {
             const { id } = req.params;
 
-            const food = await Food.findByPk(id);
+            const drink = await Drink.findByPk(id);
 
-            if (!food) {
+            if (!drink) {
                 return res.status(404).json({
                     data: [],
-                    error: "Food non trouvée"
+                    error: "Drink non trouvée"
                 });
             };
 
-            await food.destroy();
+            await drink.destroy();
 
             return res.status(200).json({ OK: true });
         } catch (error) {
