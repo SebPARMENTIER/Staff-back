@@ -14,7 +14,10 @@ app.use(cors());
 app.use(express.json());
 
 // Routing
-app.use(router);
+app.get('/', (_, res) => {
+    res.redirect('/api/v1');
+});
+app.use('/api/v1', router);
 
 // Server laucnh
 app.listen(PORT, () => {
