@@ -6,12 +6,21 @@ const express = require("express");
 const app = express();
 const router = require("./app/routers");
 const cors = require("cors");
+const sanitizer = require('sanitizer');
 
 // Allow access to DB
 app.use(cors());
 
 // Body parser
 app.use(express.json());
+app.use( (req, res, next) => {
+    if (req.body) {
+        for (const prop in req.body) {
+            req.body[prop] = sanitizer.escape(req.body[prop]);
+        }
+    }
+    next();
+});
 
 // Routing
 app.get('/', (_, res) => {
