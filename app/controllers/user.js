@@ -88,6 +88,10 @@ module.exports = {
             }
         
             const user = await User.findOne({
+                include: [
+                    { association: 'restaurant'},
+                    {association: 'job'}
+                ],
                 where: {
                 [Op.or]: {
                     email: {
