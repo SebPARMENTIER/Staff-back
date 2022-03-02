@@ -4,8 +4,8 @@ const bcrypt = require('bcrypt');
 
 const jwt = require('jsonwebtoken');
 
-function generateAccessToken(user) {
-  return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '3h' });
+function generateAccessToken() {
+  return jwt.sign({}, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '3h' });
 };
 
 module.exports = {
@@ -13,8 +13,8 @@ module.exports = {
         try {
             const users = await User.findAll({
                 include: [
-                    { association: 'restaurant'},
-                    {association: 'job'}
+                    { association: 'restaurant' },
+                    { association: 'job' }
                 ]
             });
             return res.status(200).json(users);
@@ -118,7 +118,7 @@ module.exports = {
             }
         
             const userData = user.toJSON();
-            const accessToken = generateAccessToken(userData);
+            const accessToken = generateAccessToken();
         
             return res.json({
                 ...userData,
