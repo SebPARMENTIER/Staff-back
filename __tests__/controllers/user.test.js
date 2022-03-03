@@ -2,7 +2,7 @@ const frisby = require('frisby');
 const Joi = frisby.Joi;
 
 describe('User controller', () => {
-  describe('Login', () => {
+  describe('login', () => {
     it('should return status 400 and an object if mail or password is missing', () => {
       return frisby
       .post('https://seb-stan.herokuapp.com/api/v1/login', {
@@ -46,31 +46,7 @@ describe('User controller', () => {
         password: 'motdepasse'
       })
       .expect('status', 200)
-      .expect('jsonTypes', [
-        {
-          "id": Joi.number().required(),
-          "email": Joi.string().required(),
-          "password": Joi.string().required(),
-          "name": Joi.string().required(),
-          "firstname": Joi.string().required(),
-          "restaurant_id": Joi.number().required(),
-          "job_id": Joi.number().required(),
-          "restaurant": {
-            "id": Joi.number().required(),
-            "name": Joi.string().required(),
-            "adress": Joi.string().required(),
-            "zip_code": Joi.string().required(),
-            "city": Joi.string().required(),
-            "phone": Joi.string().required(),
-            "email": Joi.string().required()
-          },
-          "job": {
-            "id": Joi.number().required(),
-            "title": Joi.string().required()
-          },
-          "accessToken": Joi.string().required()
-        }
-      ]);
+      .expect('jsonTypes', frisby.Joi.object().required());
     });
   });
 });
