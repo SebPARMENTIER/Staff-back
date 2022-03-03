@@ -64,7 +64,7 @@ module.exports = {
             if(!card) {
                 return res.status(404).json({
                     data: [],
-                    error: "Card non trouvée"
+                    error: "Cette ressource est introuvable"
                 });
             }
 
