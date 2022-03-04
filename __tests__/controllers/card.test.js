@@ -224,7 +224,7 @@ describe('Card controller', () => {
             }
           }
         })
-        .del(`https://seb-stan.herokuapp.com/api/v1/card/${testId[0]}`)
+        .del('https://seb-stan.herokuapp.com/api/v1/card/-1')
         .expect('status', 404)
         .expect('json', {
           data: [],
