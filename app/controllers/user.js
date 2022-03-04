@@ -120,7 +120,7 @@ module.exports = {
             const userData = user.toJSON();
             const accessToken = generateAccessToken();
         
-            return res.json({
+            return res.status(200).json({
                 ...userData,
                 accessToken
             });

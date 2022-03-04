@@ -101,14 +101,7 @@ module.exports = {
             if(!card) {
                 return res.status(404).json({
                     data: [],
-                    error: "Card non trouvée"
-                });
-            };
-
-            if (!id) {
-                return res.status(403).json({
-                    data: [],
-                    error: "Pas autorisé"
+                    error: "Cette ressource est introuvable"
                 });
             };
 
@@ -118,12 +111,10 @@ module.exports = {
                 restaurant_id
             });
 
-            return res.json({
-                card
-            });
+            return res.status(200).json({card});
         } catch (error) {
             console.log(error);
-            return res.status(500).json({
+            return res.status(400).json({
                 data: [],
                 error: "Désolé, une erreur est survenue, veuillez réessayer ultérieurement."
             });
