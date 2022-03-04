@@ -129,7 +129,7 @@ module.exports = {
             if (!card) {
                 return res.status(404).json({
                     data: [],
-                    error: "Card non trouvée"
+                    error: "Cette ressource est introuvable"
                 });
             };
 
@@ -138,7 +138,7 @@ module.exports = {
             return res.status(200).json({ OK: true });
         } catch (error) {
             console.log(error)
-            return res.status(500).json({
+            return res.status(400).json({
                 data: [],
                 error: "Désolé, une erreur est survenue, veuillez réessayer ultérieurement."
             });
