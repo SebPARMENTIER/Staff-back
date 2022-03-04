@@ -77,6 +77,20 @@ describe('Card controller', () => {
         .get(`https://seb-stan.herokuapp.com/api/v1/card/${cardId[0]}`)
         .expect('status', 401);
     });
+    it('should return status 200 and an object if the request is valid', () => {
+      return frisby
+        .setup({
+          request: {
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${accessToken[0]}`
+            }
+          }
+        })
+        .get(`https://seb-stan.herokuapp.com/api/v1/card/${cardId[0]}`)
+        .expect('status', 200)
+        .expect('jsonTypes', frisby.Joi.object().required())
+    });
   });
 });
 
