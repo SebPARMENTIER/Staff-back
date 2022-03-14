@@ -1,5 +1,5 @@
 {
-  "name": "stan-back",
+  "name": "staff-back",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -24,13 +24,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SebPARMENTIER/Stan-back.git"
+    "url": "git+https://github.com/SebPARMENTIER/Staff-back.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SebPARMENTIER/Stan-back/issues"
+    "url": "https://github.com/SebPARMENTIER/Staff-back/issues"
   },
-  "homepage": "https://github.com/SebPARMENTIER/Stan-back#readme"
+  "homepage": "https://github.com/SebPARMENTIER/Staff-back#readme"
 }
