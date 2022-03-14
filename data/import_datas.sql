@@ -11,9 +11,6 @@ INSERT INTO "job" ("title") VALUES
 ('Plongeur'),
 ('Gérant');
 
-INSERT INTO "user" ("email", "password", "name", "firstname", "restaurant_id", "job_id") VALUES
-('staff@staff.fr', 'motdepasse', 'STAFF', 'Sébastien', 1, 1);
-
 INSERT INTO "card" ("title", "description", "restaurant_id") VALUES
 ('Printemps 2021', 'Carte printemps 2021 avec nouvelles salades', 1),
 ('Hiver 2022', 'Carte hiver 2022 avec nouvelles viandes', 1);
