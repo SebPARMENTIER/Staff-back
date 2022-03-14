@@ -26,7 +26,7 @@ const authenticateToken = (req, res, next) => {
 
 router.get('/', (_, res) => {
     res.json({
-        message: "API Stan - Case Study",
+        message: "API Staff - Case Study",
         author: "PARMENTIER Sébastien"
     });
 });

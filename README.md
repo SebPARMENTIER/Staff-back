@@ -1,4 +1,4 @@
-# Stan Back
+# Staff Back
 
 <div align="center">
   <img src="documents/MCD.PNG" height=800px>
@@ -6,12 +6,12 @@
   
 ## Table of contents
 
-* What is Stan Back ?
+* What is Staff Back ?
 * Stack
 
-### What is Stan Front ?
+### What is Staff Front ?
 
-Stan Back is a Case Study project for restaurant staff.  
+Staff Back is a Case Study project for restaurant staff.  
 
 It contains database and fake datas.  
 
@@ -19,7 +19,7 @@ It's deployed on Heroku and use Postgres and Sequelize ORM.
 
 Other conception document are available in documents folder.
 
-Enjoy your Stan Back.
+Enjoy your Staff Back.
 
 ### Stack
 

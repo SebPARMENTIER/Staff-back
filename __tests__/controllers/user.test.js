@@ -5,7 +5,7 @@ describe('User controller', () => {
   describe('login', () => {
     it('should return status 404 and an object if mail is not correct', () => {
       return frisby
-      .post('https://seb-stan.herokuapp.com/api/v1/login', {
+      .post('https://seb-staff.herokuapp.com/api/v1/login', {
         email: 'seb@seb.fr',
         password: 'motdepasse'
       })
@@ -17,7 +17,7 @@ describe('User controller', () => {
     });
     it('should return status 400 and an object if mail or password is missing', () => {
       return frisby
-      .post('https://seb-stan.herokuapp.com/api/v1/login', {
+      .post('https://seb-staff.herokuapp.com/api/v1/login', {
         email: 'sebastien.parmentier@outlook.fr',
         password: ''
       })
@@ -29,7 +29,7 @@ describe('User controller', () => {
     });
     it('should return status 400 and an object if passord is not correct', () => {
       return frisby
-      .post('https://seb-stan.herokuapp.com/api/v1/login', {
+      .post('https://seb-staff.herokuapp.com/api/v1/login', {
         email: 'sebastien.parmentier@outlook.fr',
         password: 'mot'
       })
@@ -41,7 +41,7 @@ describe('User controller', () => {
     });
     it('should return status 200 and an object with token if email and password are valid', () => {
       return frisby
-      .post('https://seb-stan.herokuapp.com/api/v1/login', {
+      .post('https://seb-staff.herokuapp.com/api/v1/login', {
         email: 'sebastien.parmentier@outlook.fr',
         password: 'motdepasse'
       })
