@@ -10,7 +10,7 @@ describe('Card controller', () => {
     it('should return status 400 and an object if there is a bad request', () => {
       return frisby
         .post('https://seb-staff.herokuapp.com/api/v1/login', {
-          email: 'sebastien.parmentier@outlook.fr',
+          email: 'staff@staff.fr',
           password: 'motdepasse'
         })
         .then((res) => {

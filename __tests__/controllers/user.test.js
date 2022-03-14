@@ -30,7 +30,7 @@ describe('User controller', () => {
     it('should return status 400 and an object if passord is not correct', () => {
       return frisby
       .post('https://seb-staff.herokuapp.com/api/v1/login', {
-        email: 'sebastien.parmentier@outlook.fr',
+        email: 'staff@staff.fr',
         password: 'mot'
       })
       .expect('status', 400)
@@ -42,7 +42,7 @@ describe('User controller', () => {
     it('should return status 200 and an object with token if email and password are valid', () => {
       return frisby
       .post('https://seb-staff.herokuapp.com/api/v1/login', {
-        email: 'sebastien.parmentier@outlook.fr',
+        email: 'staff@staff.fr',
         password: 'motdepasse'
       })
       .expect('status', 200)
